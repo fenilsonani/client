@@ -1,37 +1,100 @@
 import React, { useState } from 'react'
 import './Slider.scss'
 
-const Slider = () => {
-    const [currentSlide, setCurrentSlide] = useState(0);
-    const data = [
-        "https://images.unsplash.com/photo-1669114656836-d5b9389a207e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80",
-        "https://images.unsplash.com/photo-1669114656836-d5b9389a207e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80",
-        "https://images.unsplash.com/photo-1669114656836-d5b9389a207e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80",
-    ]
-    const prevSlide = () => {
-        setCurrentSlide(currentSlide === 0 ? 2 : (prev) => prev - 1);
-    };
-    const nextSlide = () => {
-        setCurrentSlide(currentSlide === 2 ? 0 : (prev) => prev + 1);
-    };
+import { motion, AnimatePresence } from "framer-motion";
+import { wrap } from "popmotion";
+import { images } from "./image-data";
 
+
+
+
+const variants = {
+    enter: (direction) => {
+        return {
+            x: direction > 0 ? 1000 : -1000,
+            opacity: 0
+        };
+    },
+    center: {
+        zIndex: 1,
+        x: 0,
+        opacity: 1
+    },
+    exit: (direction) => {
+        return {
+            zIndex: 0,
+            x: direction < 0 ? 1000 : -1000,
+            opacity: 0
+        };
+    }
+};
+
+/**
+ * Experimenting with distilling swipe offset and velocity into a single variable, so the
+ * less distance a user has swiped, the more velocity they need to register as a swipe.
+ * Should accomodate longer swipes and short flicks without having binary checks on
+ * just distance thresholds and velocity > 0.
+ */
+const swipeConfidenceThreshold = 10000;
+const swipePower = (offset, velocity) => {
+    return Math.abs(offset) * velocity;
+};
+
+
+const Slider = () => {
+
+    const [[page, direction], setPage] = useState([0, 0]);
+
+    // We only have 3 images, but we paginate them absolutely (ie 1, 2, 3, 4, 5...) and
+    // then wrap that within 0-2 to find our image ID in the array below. By passing an
+    // absolute page index as the `motion` component's `key` prop, `AnimatePresence` will
+    // detect it as an entirely new image. So you can infinitely paginate as few as 1 images.
+    const imageIndex = wrap(0, images.length, page);
+
+    const paginate = (newDirection) => {
+        setPage([page + newDirection, newDirection]);
+    };
 
     return (
-        <div className="slider">
-            <div className="container" style={{ transform: `translateX(-${currentSlide * 100}vw)` }}>
-                <img src={data[0]} alt="" />
-                <img src={data[1]} alt="" />
-                <img src={data[2]} alt="" />
-            </div>
-            <div className="icons">
-                <div className="icon" onClick={prevSlide}>
-                    <i className="fa-solid fa-arrow-left"></i>
+        <>
+            return (
+            <>
+                <AnimatePresence initial={false} custom={direction}>
+                    <motion.img
+                        key={page}
+                        src={images[imageIndex]}
+                        custom={direction}
+                        variants={variants}
+                        initial="enter"
+                        animate="center"
+                        exit="exit"
+                        transition={{
+                            x: { type: "spring", stiffness: 300, damping: 60 },
+                            opacity: { duration: 0.5 }
+                        }}
+                        drag="x"
+                        dragConstraints={{ left: 0, right: 0 }}
+                        dragElastic={0.5}
+                        onDragEnd={(e, { offset, velocity }) => {
+                            const swipe = swipePower(offset.x, velocity.x);
+
+                            if (swipe < -swipeConfidenceThreshold) {
+                                paginate(1);
+                            } else if (swipe > swipeConfidenceThreshold) {
+                                paginate(-1);
+                            }
+                        }}
+                    />
+                </AnimatePresence>
+                <div className="next" onClick={() => paginate(1)}>
+                    {"‣"}
                 </div>
-                <div className="icon" onClick={nextSlide}>
-                    <i className="fa-solid fa-arrow-right"></i>
+                <div className="prev" onClick={() => paginate(-1)}>
+                    {"‣"}
                 </div>
-            </div>
-        </div>
+            </>
+            );
+        </>
     )
 }
 
