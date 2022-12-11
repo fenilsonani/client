@@ -35,11 +35,11 @@ const Card = ({ item }) => {
                 
             </div> */}
 
-            <div className="min-h-[10rem] w-72 rounded-2xl overflow-hidden bg-white text-gray-700 shadow-2xl" id="fenil-sonani">
+            <div className="min-h-[10rem] sm:mt-20 mt-20 w-72 rounded-2xl overflow-hidden bg-white text-gray-700 shadow-2xl" id="fenil-sonani">
                 <Link className='link' to={`/product/${item.id}`}>
-                    <img src={"http://localhost:1337" + item?.attributes?.img1.data?.attributes?.url} className="object-cover w-72 p-2 hover:scale-90 rounded-2xl transition-all ease-in  pb-15 h-[360px]" alt="anyimage" />
+                    <img src={"http://localhost:1337" + item?.attributes?.img1.data?.attributes?.url} className="object-cover  w-72 p-2 hover:scale-90 rounded-2xl transition-all ease-in  pb-15 h-[360px]" alt="anyimage" />
                 </Link>
-                <div className="flex flex-col  gap-3 p-5 mt-[350px]">
+                <div className="flex flex-col gap-3 p-5 mt-[350px]">
                     <div className="flex items-center gap-2">
                         {/* if the attributes are empty do not render this */}
 

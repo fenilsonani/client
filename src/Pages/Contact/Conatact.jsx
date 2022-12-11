@@ -7,25 +7,25 @@ const Conatact = () => {
         <div className=''>
             {/* write a code for the align image in the background with blur */}
             <div className="image-fenil">
-                <img src="https://images.unsplash.com/photo-1516387938699-a93567ec168e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" alt="https://images.unsplash.com/photo-1516387938699-a93567ec168e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" className='absolute top-24 px-20 sm:h-1/5 -z-40 blur-sm w-full h-3/6' />
+                <img src="https://images.unsplash.com/photo-1516387938699-a93567ec168e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" alt="https://images.unsplash.com/photo-1516387938699-a93567ec168e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" className='absolute sm:px-8 top-24 px-20 sm:h-1/5 -z-40 blur-sm w-full h-3/6' />
             </div>
             <div className="all-other-cotant mt-44 sm:mt-32">
-                <h1 className='font-bold text-6xl text-center text-white'>Conatct Us</h1>
-                <div className="grid w-full mt-36 grid-cols-3 sm:grid-cols-2">
-                    <div className="col-span-2 mx-24 sm:w-full sm:ml-0">
+                <h1 className='font-bold text-6xl sm:text-3xl text-center text-white'>Conatct Us</h1>
+                <div className="grid w-full sm:mt-20 mt-60 grid-cols-3 sm:grid-cols-2">
+                    <div className="col-span-2 mx-24 sm:w-full sm:ml-3">
                         <table className='w-full'>
                             <tbody>
                                 <tr className=''>
-                                    <td className='text-md pt-8 pb-2'>First Name</td>
-                                    <td className='text-md pt-8 pb-2'>Last Name</td>
+                                    <td className='text-md font-semibold pt-8 pb-2'>First Name</td>
+                                    <td className='text-md font-semibold pt-8 pb-2'>Last Name</td>
                                 </tr>
                                 <tr>
                                     <td><input type="text" name='first-name' className='border-2 bg-gray-100 border-gray-400 rounded-lg transition-all outline-yellow-700 ease-in duration-500 p-2 w-5/6' /></td>
                                     <td><input type="text" name='last-name' className='border-2	bg-gray-100 border-gray-400 rounded-lg transition-all outline-yellow-700 ease-in duration-500 p-2 w-5/6' /></td>
                                 </tr>
                                 <tr>
-                                    <td className='pt-8 pb-2'>Email:-</td>
-                                    <td className='pt-8 pb-2'>Phone No:-</td>
+                                    <td className='pt-8 font-semibold pb-2'>Email:-</td>
+                                    <td className='pt-8 font-semibold pb-2'>Phone No:-</td>
                                 </tr>
                                 <tr >
                                     <td>
@@ -36,13 +36,7 @@ const Conatact = () => {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colSpan={2} className="pt-6 pb-2">
-                                        {/* write a code for the dropdown */}
-                                        <button className='border-2	bg-gray-100 border-gray-400 rounded-lg transition-all  outline-yellow-700 ease-in duration-500 p-2 w-[91.5%]'>Selectcd Query <i className="fa-solid fa-angle-down"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colSpan={2} className="pt-6 pb-2">Your Message:-</td>
+                                    <td colSpan={2} className="pt-6 pb-2 font-semibold" >Your Message:-</td>
                                 </tr>
                                 <tr>
                                     <td colSpan={2}>

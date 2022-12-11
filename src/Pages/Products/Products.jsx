@@ -51,6 +51,7 @@ const Products = () => {
               min={0}
               max={1000}
               onChange={(e) => setMaxPrice(e.target.value)}
+              className="rounded-lg overflow-hidden appearance-none bg-gray-400 h-3 w-128"
             />
             <span>{maxPrice}</span>
           </div>

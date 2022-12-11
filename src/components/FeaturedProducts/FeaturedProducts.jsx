@@ -1,6 +1,6 @@
 import React from 'react'
 import Card from '../Card/Card'
-import './FeaturedProducts.scss'
+// import './FeaturedProducts.scss'
 // import axios from 'axios'
 import useFetch from '../../hooks/useFetch'
 import Loading from '../Loading/Loading'
@@ -16,19 +16,19 @@ const FeaturedProducts = ({ type }) => {
     );
 
     return (
-        <div className='mx-16 my-20'>
+        <div className='mx-16 sm:mx-2 my-20'>
             <div className="flex justify-between">
                 <h1 className='text-4xl font-semibold capitalize'>{type} Product</h1>
                 <p className='text-right text-xl'>New Lanched Product Recently</p>
             </div>
-            <div className="bottom sm:mx-1 mx-20 my-10 grid grid-cols-4 md:grid-cols-2 sm:grid-cols-1">
+            <div className="bottom sm:w-full my-10 grid grid-cols-4 md:grid-cols-2 sm:grid-cols-1">
                 {error
                     ? <Error />
                     : loading
                         ? <Loading />
                         : data?.map((item) => <Card item={item} key={item.id} />)}
             </div>
-            
+
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import  React from "react";
+import React from "react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { wrap } from "popmotion";
@@ -36,7 +36,7 @@ const swipeConfidenceThreshold = 10000;
 const swipePower = (offset, velocity) => {
     return Math.abs(offset) * velocity;
 };
-const Slider = ({item}) => {
+const Slider = ({ item }) => {
     const [[page, direction], setPage] = useState([0, 0]);
     const imageIndex = wrap(0, images.length, page);
 
@@ -74,10 +74,10 @@ const Slider = ({item}) => {
                 />
             </AnimatePresence>
             <div className="next-slide" onClick={() => paginate(1)}>
-                {"‣"}
+                {<i class="fa-solid fa-chevron-right"></i>}
             </div>
             <div className="prev-slide" onClick={() => paginate(-1)}>
-                {"‣"}
+                {<i class="fa-solid fa-chevron-right"></i>}
             </div>
         </div>
     )

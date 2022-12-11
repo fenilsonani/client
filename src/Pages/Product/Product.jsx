@@ -88,7 +88,7 @@ const Product = () => {
   return (
     <>
       {/* ce */}
-      <div className="grid grid-cols-2 sm:grid-cols-1 h-auto sm:h-auto">
+      <div className="grid mt-20 sm:mt-10 grid-cols-2 sm:grid-cols-1 h-auto sm:h-auto">
         <div className="col-span-1 overflow-hidden sm:h-[100vw] sm:mt-8  w-[100vw]">
           <AnimatePresence initial={false} custom={direction}>
             <motion.img
@@ -98,6 +98,7 @@ const Product = () => {
               whileDrag={{ scale: 0.6 }}
               whileHover={{ scale: 1.3, transition: { duration: 0.8 }, style: { cursor: 'pointer' } }}
               src={images[imageIndex]}
+              alt="product image"
               custom={direction}
               variants={variants}
               initial="enter"
@@ -149,7 +150,7 @@ const Product = () => {
                 <th scope="row" className="py-2 text-left pr-6 sm:py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                   Discount:
                 </th>
-                <td className="py-2 pr-6 sm:py-1 text-red-400">
+                <td className="py-2 pr-6 sm:py-1 font-bold text-red-800">
                   ₹{discount}({discountper}%)
                 </td>
               </tr>
@@ -185,7 +186,7 @@ const Product = () => {
             <div className="links sm:w-[20vw] flex gap-2">
               <div className="item">
                 <button className='bg-red-500/80 hover:bg-red-500/50 rounded-md
-    text-white font-medium flex px-4 py-4 my-2 tracking-wider transition-all ease-in'><i className="fa-regular fa-heart"></i></button>
+    text-white font-medium flex px-4 py-4 my-2 tracking-wider transition-all ease-in' id='heart-icon'><i className="fa-regular fa-heart"></i></button>
               </div>
             </div>
           </div>
@@ -209,8 +210,7 @@ const Product = () => {
                 showState={false}
                 getData={(data) => setTemp(data)}
               />
-              <button onClick={handlePincode} className="bg-yellow-500/80 hover:bg-yellow-500/50 rounded-md
-    text-white font-medium items-center flex ml-5 px-10 py-1 tracking-wider transition-all ease-in">Check</button>
+              <button onClick={handlePincode} className="bg-yellow-500/80 hover:bg-yellow-500/50 rounded-md font-medium items-center flex ml-5 px-10 py-1 tracking-wider text-black transition-all ease-in">Check</button>
             </div>
             <table>
               <tbody>
