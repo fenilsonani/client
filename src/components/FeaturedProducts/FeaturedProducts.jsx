@@ -12,21 +12,23 @@ import Error from '../Error/Error'
 const FeaturedProducts = ({ type }) => {
 
     const { data, loading, error } = useFetch(
-        `/products?populate=*&[filters][type][$eq]=${type}`
+        `/products?populate=*&[filters][type][$eq]=${type}&pagination[limit]=4`
     );
+
     return (
-        <div className='featuredProduct'>
-            <div className="top">
-                <h1>{type} Product</h1>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, consequuntur veritatis. Pariatur!</p>
+        <div className='mx-16 my-20'>
+            <div className="flex justify-between">
+                <h1 className='text-4xl font-semibold capitalize'>{type} Product</h1>
+                <p className='text-right text-xl'>New Lanched Product Recently</p>
             </div>
-            <div className="bottom">
+            <div className="bottom sm:mx-1 mx-20 my-10 grid grid-cols-4 md:grid-cols-2 sm:grid-cols-1">
                 {error
-                    ?<Error/>
+                    ? <Error />
                     : loading
-                        ?<Loading/>
+                        ? <Loading />
                         : data?.map((item) => <Card item={item} key={item.id} />)}
             </div>
+            
         </div>
     )
 }

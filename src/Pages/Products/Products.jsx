@@ -38,7 +38,7 @@ const Products = () => {
                 id={item.id}
                 value={item.id}
                 onChange={handleChange} />
-              <label htmlFor={item.id}>{item.attributes?.title}</label>
+              <label htmlhtmlFor={item.id}>{item.attributes?.title}</label>
             </div>
           ))}
         </div>
@@ -64,9 +64,9 @@ const Products = () => {
               value="asc"
               name="price"
               onChange={(e) => setSort("asc")
-            }
+              }
             />
-            <label htmlFor="asc">Price (Lowest first)</label>
+            <label htmlhtmlFor="asc">Price (Lowest first)</label>
           </div>
           <div className="inputItem">
             <input
@@ -76,16 +76,11 @@ const Products = () => {
               name="price"
               onChange={(e) => setSort("desc")}
             />
-            <label htmlFor="desc">Price (Highest first)</label>
+            <label htmlhtmlFor="desc">Price (Highest first)</label>
           </div>
         </div>
       </div>
       <div className="right">
-        <img
-          className="catImg"
-          src="https://images.pexels.com/photos/1074535/pexels-photo-1074535.jpeg?auto=compress&cs=tinysrgb&w=1600"
-          alt=""
-        />
         <List catId={catId} maxPrice={maxPrice} sort={sort} subCats={selectedSubCats} />
       </div>
     </div>

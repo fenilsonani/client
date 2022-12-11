@@ -1,15 +1,18 @@
 import React from 'react'
-import './app.scss'
+// import './app.scss'
 import {
   createBrowserRouter,
   RouterProvider,
   Outlet
 } from "react-router-dom";
+import Categories from './Pages/Categories/Categories';
 import Footer from './components/Footer/Footer';
 import Navbar from './components/Navbar/Navbar';
 import Home from './Pages/Home/Home';
 import Product from './Pages/Product/Product';
 import Products from './Pages/Products/Products';
+import Conatact from './Pages/Contact/Conatact';
+import Full_Cart from './components/Full_Cart/Full_Cart';
 
 
 const Layout = () => {
@@ -38,8 +41,20 @@ const router = createBrowserRouter([
         element: <Products />
       },
       {
-        path: "/product/:id", 
+        path: "/product/:id",
         element: <Product />
+      },
+      {
+        path: "/categories",
+        element: <Categories />
+      },
+      {
+        path: "/contact",
+        element: <Conatact />
+      },
+      {
+        path: "/fullcart",
+        element: <Full_Cart />
       },
     ],
   },

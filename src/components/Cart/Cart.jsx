@@ -7,6 +7,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import { makeRequest } from '../../makeRequest';
 
 
+
 const Cart = () => {
     const products = useSelector(state => state.cart.products)
     const totalProduct = () => {
@@ -15,7 +16,6 @@ const Cart = () => {
             qty += item.quantity)
         return qty
     }
-
 
     const dispatch = useDispatch()
 
@@ -41,6 +41,7 @@ const Cart = () => {
             console.log(err);
         }
     };
+
     return (
         <div className="cart">
             <h1>Produts In Your Cart</h1>
