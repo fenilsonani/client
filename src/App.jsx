@@ -12,7 +12,6 @@ import Home from './Pages/Home/Home';
 import Product from './Pages/Product/Product';
 import Products from './Pages/Products/Products';
 import Conatact from './Pages/Contact/Conatact';
-import Full_Cart from './components/Full_Cart/Full_Cart';
 
 
 const Layout = () => {
@@ -51,10 +50,6 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Conatact />
-      },
-      {
-        path: "/fullcart",
-        element: <Full_Cart />
       },
     ],
   },

@@ -47,12 +47,13 @@ const Product = () => {
 
   const [pincodeData, setPincodeData] = useState(null);
   const handlePincode = () => {
-    setPincodeData(temp)
-    if (pincodeData.stateName === "Gujarat") {
+    if (temp.stateName === "Gujarat") {
+      setPincodeData(temp)
       setTimed("1-2 days")
       setDeliverycharge(40)
     }
     else {
+      setPincodeData(temp)
       setTimed("3-4 days")
       setDeliverycharge(60)
     }
@@ -124,7 +125,7 @@ const Product = () => {
         <div className="col-span-1 sm:mt-5">
           {/* code for title */}
           <h3 className='sm:ml-3'>Brand:{data?.attributes?.brand}</h3>
-          <h1 className='font-bold font-sans sm:ml-5 w-full capitalize sm:py-3 py-5 text-4xl' style={{ 'white-space': 'pre-wrap', 'overflow-wrap': 'break-word' }}>{data?.attributes?.title}</h1>
+          <h1 className='font-bold font-sans sm:ml-5 w-full capitalize sm:py-3 py-5 text-4xl' style={{ 'whiteSpace': 'pre-wrap', 'overflowWrap': 'break-word' }}>{data?.attributes?.title}</h1>
           {/* code for price */}
           <table className="text-sm sm:ml-5 text-gray-500 dark:text-gray-400">
             <tbody>

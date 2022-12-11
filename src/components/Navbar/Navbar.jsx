@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Cart from '../Cart/Cart'
 import { useSelector } from 'react-redux'
-import Full_Cart from '../Full Cart/Full_Cart'
 
 const Navbar = () => {
     const [open, setopen] = useState(false)
@@ -36,7 +35,7 @@ const Navbar = () => {
                         <svg className="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"></path></svg>
                     </button>
                 </div>
-                <div className="items-center  justify-between hidden w-full sm:flex md:flex md:w-auto md:order-1" id="mobile-menu-2" style={{ display: isShown ? 'block' : 'none' }}>
+                <div className="items-center  justify-between hidden flex w-full sm:flex md:flex md:w-auto md:order-1" id="mobile-menu-2" style={{ display: isShown ? 'block' : 'none' }}>
                     <ul className="flex flex-col p-4 mt-4 border sm:w-full border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 sm:flex md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white 
                     sm:space-x-1 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                         <li>
