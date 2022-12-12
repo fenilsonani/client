@@ -90,13 +90,13 @@ const Footer = () => {
           <div className="-mx-4 flex sm:flex-wrap">
             <div className="w-full px-4 sm:w-2/3 lg:w-3/12 sm:flex-wrap">
               <div className="mb-10 w-full">
-                <a href="javascript:void(0)" className="mb-6 inline-block max-w-[160px]">
+                <Link href="/" className="mb-6 inline-block max-w-[160px]">
                   <img
                     src="http://localhost:1337/uploads/Black_Modern_Business_Logo_ba264e8ac4.png"
                     alt="logo"
                     className="w-16 rounded-full border-[1px] border-black"
                   />
-                </a>
+                </Link>
                 <p className="text-body-color mt-10 mb-7 text-base">
                   Sed ut perspiciatis undmnis is iste natus error sit amet voluptatem
                   totam rem aperiam.
