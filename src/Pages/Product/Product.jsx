@@ -39,7 +39,7 @@ const swipePower = (offset, velocity) => {
 const Product = () => {
   const id = useParams().id;
   const dispatch = useDispatch()
-  const [selectedImage, setselectedImage] = useState("img1")
+  // const [selectedImage, setselectedImage] = useState("img1")
   const [quantity, setquantity] = useState(1)
   const [timed, setTimed] = useState("");
   const [temp, setTemp] = useState(null);
@@ -66,7 +66,7 @@ const Product = () => {
     width: "60px",
     height: "60px"
   }
-  const { data, loading, error } = useFetch(`/products/${id}?populate=*`);
+  const { data, loading } = useFetch(`/products/${id}?populate=*`);
 
   // data images data from the server
   const images = [
