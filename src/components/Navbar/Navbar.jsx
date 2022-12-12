@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import Cart from '../Cart/Cart'
 import { useSelector } from 'react-redux'
 
+
 const Navbar = () => {
     const [open, setopen] = useState(false)
     const products = useSelector(state => state.cart.products)
