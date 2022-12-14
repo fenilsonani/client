@@ -79,7 +79,8 @@ const Cart = () => {
                         {products.map((item) => (
                             <tr className='h-40' >
                                 <td className="w-[25%] flex">
-                                    <img src={"http://localhost:1337" + item.img1} alt="" className='w-[25%] overflow-scroll p-2 rounded-3xl' />
+                                    <img src={"http://localhost:1337"+item?.attributes?.img.data.attributes?.url} alt="" className='w-[25%] overflow-scroll p-2 rounded-3xl' />
+                                    {/* <h1>{"http://localhost:1337"+item?.attributes?.img.data.attributes?.ur}</h1> */}
                                 </td>
                                 <td className="w-[65%] flex-none">
                                     <h1 className='text-lg font-semibold'>{item.title}</h1>
@@ -105,7 +106,7 @@ const Cart = () => {
                     <button className='bg-black text-white my-10 p-3 rounded-lg w-[80%] hover:bg-gray-900 transition-all ease-in duration-300' onClick={handlePayment}>PROCEED TO CHECKOUT</button>
                 </div>
                 <div className="another-item flex justify-center">
-                    <button className='border-2 border-red-300 mb-10 p-3 rounded-lg w-[80%] hover:bg-red-400 hover:text-white transition-all ease-in duration-300'>
+                    <button className='border-2 border-red-300 mb-10 p-3 rounded-lg w-[80%] hover:bg-red-400 hover:text-white transition-all ease-in duration-300' onClick={() => dispatch(resetCart())} >
                         Reset Cart
                     </button>
                 </div>
