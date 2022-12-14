@@ -9,6 +9,9 @@ import ReactMarkdown from "react-markdown";
 import Loading from '../../components/Loading/Loading';
 import { motion, AnimatePresence } from "framer-motion";
 import { wrap } from "popmotion";
+import { FacebookShareButton, FacebookIcon, WhatsappShareButton, WhatsappIcon, TwitterShareButton, TwitterIcon, TelegramShareButton, TelegramIcon } from 'react-share';
+// import MetaTags from 'react-meta-tags';
+
 const variants = {
   enter: (direction) => {
     return {
@@ -37,6 +40,8 @@ const swipePower = (offset, velocity) => {
 
 
 const Product = () => {
+  const shareUrl = process.env.REACT_APP_URL + `/products/${useParams().id}`;
+  // alert(shareUrl)
   const id = useParams().id;
   const dispatch = useDispatch()
   // const [selectedImage, setselectedImage] = useState("img1")
@@ -177,7 +182,7 @@ const Product = () => {
             }))}>
               <lord-icon
                 src="https://cdn.lordicon.com/slkvcfos.json"
-                trigger="hover"
+                trigger="loop"
                 style={fenilst}>
 
               </lord-icon>
@@ -190,6 +195,38 @@ const Product = () => {
               </div>
             </div>
           </div>
+          {/* code for the link button like instagram,facebook that share url of website*/}
+          <div className="link-btn flex gap-4">
+            <div className="item">
+              <FacebookShareButton url={shareUrl} quote={"fenil sonani"}>
+                <span className="share-icon">
+                  <i className='bg-gray-200 py-4 px-4 rounded-full fa fa-facebook'></i>
+                </span>
+              </FacebookShareButton>
+            </div>
+            <div className="item">
+              <WhatsappShareButton url={shareUrl} title={"fenil sonani"}>
+                <span className="share-icon">
+                  <i className='bg-gray-200 py-4 px-4 rounded-full fa fa-whatsapp'></i>
+                </span>
+              </WhatsappShareButton>
+            </div>
+            <div className="item">
+              <TwitterShareButton url={shareUrl} title={"fenil sonani"}>
+                <span className="share-icon">
+                  <i className='bg-gray-200 py-4 px-4 rounded-full fa fa-twitter'></i>
+                </span>
+              </TwitterShareButton>
+            </div>
+            <div className="item">
+              <TelegramShareButton url={shareUrl} title={"fenil sonani"}>
+                <span className="share-icon">
+                  <i className='bg-gray-200 py-4 px-4 rounded-full fa fa-telegram'></i>
+                </span>
+              </TelegramShareButton>
+            </div>
+          </div>
+
           <div className="features">
             {/* code for features */}
             <h1 className='text-3xl sm:text-2xl sm:py-1 font-semibold py-2'>Features:-</h1>

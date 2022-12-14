@@ -54,6 +54,7 @@ const Slider = ({ item }) => {
                     variants={variants}
                     initial="enter"
                     animate="center"
+                    alt={images[imageIndex]}
                     exit="exit"
                     transition={{
                         x: { type: "spring", stiffness: 300, damping: 60 },
@@ -74,10 +75,10 @@ const Slider = ({ item }) => {
                 />
             </AnimatePresence>
             <div className="next-slide" onClick={() => paginate(1)}>
-                {<i class="fa-solid fa-chevron-right"></i>}
+                {<i className="fa-solid fa-chevron-right"></i>}
             </div>
             <div className="prev-slide" onClick={() => paginate(-1)}>
-                {<i class="fa-solid fa-chevron-right"></i>}
+                {<i className="fa-solid fa-chevron-right"></i>}
             </div>
         </div>
     )

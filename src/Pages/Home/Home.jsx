@@ -6,7 +6,7 @@ import Categories from '../../components/Categories/Categories'
 
 const Home = () => {
   return (
-    <div className="home">
+    <div className="home overflow-hidden">
       <Slider/>
       <FeaturedProducts type="new"/>
       <Categories/>

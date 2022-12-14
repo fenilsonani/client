@@ -11,6 +11,7 @@
   @media screen and (max-width: 900px) {
     height: 30vh;
   }
+
   @media screen and (max-width: 768px) {
     height: 25vh;
   }
@@ -39,12 +40,19 @@
 
 .next-slide {
   right: 50px;
+  
+  @media screen and (max-width: 768px) {
+    right: 10px;
+  }
   // font-size: 50px;
 }
 
 .prev-slide {
   left: 50px;
   transform: scale(-1);
+  @media screen and (max-width: 768px) {
+    left: 10px;
+  }
 }
 
 img {
